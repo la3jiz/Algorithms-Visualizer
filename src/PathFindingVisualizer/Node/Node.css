@@ -1,11 +1,11 @@
 .node {
-  width: 40px;
-  height: 40px;
-  outline: 1px solid #1f6ffe;
+  width: 30px;
+  height: 30px;
+  outline: 1px solid rgb(175, 216, 248) ;
   display: inline-block;
-  border-radius: 8px;
+  border-radius: 6px;
 }
-
+/*#1f6ffe*/
 .node-finish {
   background-color: red;
 }
