@@ -1,9 +1,9 @@
 .node {
-  width: 30px;
-  height: 30px;
-  outline: 1px solid rgb(175, 216, 248) ;
+  width: 35px;
+  height: 35px;
+  outline: 1px solid #271e37 ;
   display: inline-block;
-  border-radius: 6px;
+
 }
 /*#1f6ffe*/
 .node-finish {
@@ -25,7 +25,7 @@
   animation-play-state: running;
 }
 
-@keyframes visitedAnimation {
+/* @keyframes visitedAnimation {
   0% {
     transform: scale(0.3);
     background-color: rgba(0, 0, 66, 0.75);
@@ -45,10 +45,31 @@
     transform: scale(1);
     background-color: rgba(0, 190, 218, 0.75);
   }
+} */
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(54, 141, 255, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: #71d2f0;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #2cc7f7;
+  }
 }
 
 .node-wall {
-  background-color: rgb(12, 53, 71);
+  background-color: rgb(134, 134, 134);
 }
 
 .node-shortest-path {
