@@ -19,13 +19,13 @@ function Navbar({ className }) {
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Algorithms">
           <div className="flex flex-col space-y-4 text-sm items-start">
-            <HoveredLink href="/dijkastra">Dijkastra</HoveredLink>
+            <HoveredLink to="/dijkastra">Dijkastra</HoveredLink>
           </div>
         </MenuItem>
 
         <MenuItem setActive={setActive} active={active} item="Sort Alogrithms">
           <div className="flex flex-col space-y-4 text-sm items-start">
-            <HoveredLink href="/quick-sort">Quick Sort</HoveredLink>
+            <HoveredLink to="/quick-sort">Quick Sort</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem
@@ -34,7 +34,7 @@ function Navbar({ className }) {
           item="LeetCode Challenges"
         >
           <div className="flex flex-col space-y-4 text-sm items-start">
-            <HoveredLink href="/median">
+            <HoveredLink to="/median">
               Median Of Two Sorted Arrays
             </HoveredLink>
           </div>

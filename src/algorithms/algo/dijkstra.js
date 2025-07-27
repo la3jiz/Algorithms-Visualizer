@@ -1,3 +1,34 @@
+//pure algorthim O(n^2)
+function dijkstraWeightedGraph(graph, start) {
+  const n = graph.length;
+  const distances = new Array(n).fill(Infinity);
+  const visited = new Array(n).fill(false);
+  distances[start] = 0;
+  for (let i = 0; i < n - 1; i++) {
+    let minDistance = Infinity;
+    let nodeIndex = -1;
+    for (let j = 0; j < n; j++) {
+      if (!visited[j] && distances[j] < minDistance) {
+        minDistance = distances[j];
+        nodeIndex = j;
+      }
+    }
+    if (nodeIndex === -1) break;
+    visited[nodeIndex] = true;
+    for (let v = 0; v < n; v++) {
+      if (graph[nodeIndex][v] !== Infinity && !visited[v]) {
+        let newDis = distances[nodeIndex] + graph[nodeIndex][v];
+        if (newDis < distances[v]) {
+          distances[v] = newDis;
+        }
+      }
+    }
+  }
+  return distances;
+}
+
+
+
 
 // Performs Dijkstra's algorithm; returns *all* nodes in the order
 // in which they were visited. Also makes nodes point back to their

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Node from "./Node/Node";
-import { dijkstra, getNodesInShortestPathOrder } from "../algorithms/dijkstra";
+import { dijkstra, getNodesInShortestPathOrder } from "../../algorithms/algo/dijkstra";
 
 import "./PathFindingVisualizer.css";
-import PrimaryButton from "../components/buttons/PrimayButton";
-import CodeSnippet from "../components/codeSnippet";
-import IconButton from "../components/buttons/IconButton";
+import PrimaryButton from "../../components/buttons/PrimayButton";
+import CodeSnippet from "../../components/codeSnippet";
+import IconButton from "../../components/buttons/IconButton";
 
 const START_NODE_ROW = 10;
 const START_NODE_COL = 15;
 const FINISH_NODE_ROW = 10;
 const FINISH_NODE_COL = 35;
 
-const AlgoCode = `function dijkstraWeightedGraph(graph, start) {
+const ALGORITHM_CODE = `function dijkstraWeightedGraph(graph, start) {
   const n = graph.length;
   const distances = new Array(n).fill(Infinity);
   const visited = new Array(n).fill(false);
@@ -106,7 +106,47 @@ const PathFindingVisualizer = () => {
         <p className="text-3xl font-bold ">Visualize Dijkstra's Algorithm :</p>
         <div className="mt-2 pl-4 flex items-end justify-between w-full">
           <PrimaryButton onClick={visualizeDijkstra} text={"Run Code"} />
-          <IconButton onClick={()=>{}} icon={"material-symbols-light:restart-alt"} />
+          <IconButton
+            onClick={() => {
+              // Reset all node classes
+              for (let row of grid) {
+                for (let node of row) {
+                  if (
+                    node.row === START_NODE_ROW &&
+                    node.col === START_NODE_COL
+                  ) {
+                    const nodeElement = document.getElementById(
+                      `node-${node.row}-${node.col}`
+                    );
+                    if (nodeElement) {
+                      nodeElement.className = "node node-start";
+                    }
+                  } else if (
+                    node.row === FINISH_NODE_ROW &&
+                    node.col === FINISH_NODE_COL
+                  ) {
+                    const nodeElement = document.getElementById(
+                      `node-${node.row}-${node.col}`
+                    );
+                    if (nodeElement) {
+                      nodeElement.className = "node node-finish";
+                    }
+                  } else {
+                    const nodeElement = document.getElementById(
+                      `node-${node.row}-${node.col}`
+                    );
+                    if (nodeElement) {
+                      nodeElement.className = "node";
+                    }
+                  }
+                }
+              }
+
+              // Reset the state grid
+              setGrid(getInitialGrid());
+            }}
+            icon={"material-symbols-light:restart-alt"}
+          />
         </div>
       </div>
       <div className="grid">
@@ -136,9 +176,9 @@ const PathFindingVisualizer = () => {
       </div>
       <div className="px-12  relative bottom-20">
         <CodeSnippet
-          code={AlgoCode}
+          code={ALGORITHM_CODE}
           codingLanguage={"javascript"}
-          title={"Dijkstra's Algorithm In JS O(n^2)"}
+          title={"Dijkstra's Algorithm In JS: O(n^2)"}
         />
       </div>
     </>

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 
 
@@ -98,10 +99,10 @@ export const HoveredLink = ({
   ...rest
 }) => {
   return (
-    <a
+    <Link
       {...rest}
       className="text-neutral-700 dark:text-neutral-200 hover:text-gray-300 ">
       {children}
-    </a>
+    </Link>
   );
 };
