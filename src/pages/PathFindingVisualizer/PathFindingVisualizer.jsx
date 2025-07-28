@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Node from "./Node/Node";
-import { dijkstra, getNodesInShortestPathOrder } from "../../algorithms/algo/dijkstra";
+import {
+  dijkstra,
+  getNodesInShortestPathOrder,
+} from "../../algorithms/algo/dijkstra";
 
 import "./PathFindingVisualizer.css";
 import PrimaryButton from "../../components/buttons/PrimayButton";
@@ -99,7 +102,41 @@ const PathFindingVisualizer = () => {
     const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
     animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
   };
+  const resetGrid = () => {
+    // Reset all node classes
+    for (let row of grid) {
+      for (let node of row) {
+        if (node.row === START_NODE_ROW && node.col === START_NODE_COL) {
+          const nodeElement = document.getElementById(
+            `node-${node.row}-${node.col}`
+          );
+          if (nodeElement) {
+            nodeElement.className = "node node-start";
+          }
+        } else if (
+          node.row === FINISH_NODE_ROW &&
+          node.col === FINISH_NODE_COL
+        ) {
+          const nodeElement = document.getElementById(
+            `node-${node.row}-${node.col}`
+          );
+          if (nodeElement) {
+            nodeElement.className = "node node-finish";
+          }
+        } else {
+          const nodeElement = document.getElementById(
+            `node-${node.row}-${node.col}`
+          );
+          if (nodeElement) {
+            nodeElement.className = "node";
+          }
+        }
+      }
+    }
 
+    // Reset the state grid
+    setGrid(getInitialGrid());
+  };
   return (
     <>
       <div className=" flex flex-col items-start justify-end relative top-20 px-10 mt-4">
@@ -107,44 +144,7 @@ const PathFindingVisualizer = () => {
         <div className="mt-2 pl-4 flex items-end justify-between w-full">
           <PrimaryButton onClick={visualizeDijkstra} text={"Run Code"} />
           <IconButton
-            onClick={() => {
-              // Reset all node classes
-              for (let row of grid) {
-                for (let node of row) {
-                  if (
-                    node.row === START_NODE_ROW &&
-                    node.col === START_NODE_COL
-                  ) {
-                    const nodeElement = document.getElementById(
-                      `node-${node.row}-${node.col}`
-                    );
-                    if (nodeElement) {
-                      nodeElement.className = "node node-start";
-                    }
-                  } else if (
-                    node.row === FINISH_NODE_ROW &&
-                    node.col === FINISH_NODE_COL
-                  ) {
-                    const nodeElement = document.getElementById(
-                      `node-${node.row}-${node.col}`
-                    );
-                    if (nodeElement) {
-                      nodeElement.className = "node node-finish";
-                    }
-                  } else {
-                    const nodeElement = document.getElementById(
-                      `node-${node.row}-${node.col}`
-                    );
-                    if (nodeElement) {
-                      nodeElement.className = "node";
-                    }
-                  }
-                }
-              }
-
-              // Reset the state grid
-              setGrid(getInitialGrid());
-            }}
+            onClick={resetGrid}
             icon={"material-symbols-light:restart-alt"}
           />
         </div>

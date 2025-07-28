@@ -3,6 +3,7 @@ import ArrayItem from "./ArrayItem";
 import PrimaryButton from "../../components/buttons/PrimayButton";
 import CodeSnippet from "../../components/codeSnippet";
 import { quickSortVisual } from "../../algorithms/sorts/quickSort";
+import IconButton from "../../components/buttons/IconButton";
 
 let ALGORITHM_CODE = `function quickSort(array, low, high) {
   if (low < high) {
@@ -31,8 +32,23 @@ function partition(array, low, high) {
 `;
 
 const QuickSort = () => {
-  const [array, setArray] = useState([2, 4, 1, 8, 3]);
-  const [isCodeCompiled, setIsCodeCompiled] = useState(false);
+  const [array, setArray] = useState(
+    [2, 4, 1, 8, 3, 6, 9, 7].map((value, index) => ({
+      value,
+      isPivot: false,
+      isPivotDone: false,
+    }))
+  );
+
+  const resetArray = () => {
+    setArray(
+      [2, 4, 1, 8, 3, 6, 9, 7].map((value, index) => ({
+        value,
+        isPivot: false,
+        isPivotDone: false,
+      }))
+    );
+  };
 
   return (
     <div>
@@ -46,11 +62,15 @@ const QuickSort = () => {
             }}
             text={"Run Code"}
           />
+          <IconButton
+            onClick={resetArray}
+            icon={"material-symbols-light:restart-alt"}
+          />{" "}
         </div>
         <div className="flex items-center justify-center  w-full h-[50vh]">
           <div className="flex ">
             {array.map((item, index) => (
-              <ArrayItem content={item} />
+              <ArrayItem item={item} />
             ))}
           </div>
         </div>

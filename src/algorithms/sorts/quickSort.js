@@ -34,22 +34,25 @@ export const quickSortVisual = async (arr, low, high, updateArray) => {
 };
 
 const partitionVisual = async (arr, low, high, updateArray) => {
-  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
-  let pivot = arr[high];
+  let pivot = arr[high].value;
+  arr[high].isPivot = true;
+  updateArray([...arr]);
   let i = low - 1;
 
   for (let j = low; j < high; j++) {
-    if (arr[j] < pivot) {
+    if (arr[j].value < pivot) {
       i++;
       [arr[i], arr[j]] = [arr[j], arr[i]];
       updateArray([...arr]);
-      await delay(500);
+      await delay(1000);
     }
   }
+  arr[high].isPivotDone = true;
 
   [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
   updateArray([...arr]);
-  await delay(500);
+  await delay(1000);
   return i + 1;
 };
+
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
