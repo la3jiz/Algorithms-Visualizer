@@ -1,0 +1,10 @@
+.medianItem {
+  width: 100px;
+  height: 100px;
+  outline: 1px solid #271e37 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  /* color: #2373ff; */
+}

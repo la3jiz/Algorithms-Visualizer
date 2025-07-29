@@ -39,6 +39,8 @@ const QuickSort = () => {
       isPivotDone: false,
     }))
   );
+    const [isCodeRunning, setIsCodeRunning] = useState(false);
+
 
   const resetArray = () => {
     setArray(
@@ -53,14 +55,16 @@ const QuickSort = () => {
   return (
     <div>
       <div className=" flex flex-col items-start justify-end relative top-20 px-10 mt-4">
-        <p className="text-3xl font-bold ">Visualize Dijkstra's Algorithm :</p>
+        <p className="text-3xl font-bold ">Quick Sort Algorithm :</p>
         <div className="mt-2 pl-4 flex items-end justify-between w-full">
           <PrimaryButton
             onClick={async () => {
+              setIsCodeRunning(true);
               const newArr = [...array];
               await quickSortVisual(newArr, 0, newArr.length - 1, setArray);
+              setIsCodeRunning(false);
             }}
-            text={"Run Code"}
+            text={isCodeRunning ? "Running..." : "Run Code"}
           />
           <IconButton
             onClick={resetArray}

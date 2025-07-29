@@ -47,6 +47,7 @@ const ALGORITHM_CODE = `function dijkstraWeightedGraph(graph, start) {
 const PathFindingVisualizer = () => {
   const [grid, setGrid] = useState([]);
   const [mouseIsPressed, setMouseIsPressed] = useState(false);
+  const [isCodeRunning, setIsCodeRunning] = useState(false);
 
   useEffect(() => {
     const initialGrid = getInitialGrid();
@@ -70,6 +71,7 @@ const PathFindingVisualizer = () => {
   };
 
   const animateDijkstra = (visitedNodesInOrder, nodesInShortestPathOrder) => {
+    setIsCodeRunning(true);
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       if (i === visitedNodesInOrder.length) {
         setTimeout(() => {
@@ -83,6 +85,7 @@ const PathFindingVisualizer = () => {
           "node node-visited";
       }, 10 * i);
     }
+    setIsCodeRunning(false);
   };
 
   const animateShortestPath = (nodesInShortestPathOrder) => {
@@ -93,6 +96,8 @@ const PathFindingVisualizer = () => {
           "node node-shortest-path";
       }, 50 * i);
     }
+        setIsCodeRunning(false);
+
   };
 
   const visualizeDijkstra = () => {
@@ -140,9 +145,12 @@ const PathFindingVisualizer = () => {
   return (
     <>
       <div className=" flex flex-col items-start justify-end relative top-20 px-10 mt-4">
-        <p className="text-3xl font-bold ">Visualize Dijkstra's Algorithm :</p>
+        <p className="text-3xl font-bold ">Dijkstra's Algorithm :</p>
         <div className="mt-2 pl-4 flex items-end justify-between w-full">
-          <PrimaryButton onClick={visualizeDijkstra} text={"Run Code"} />
+          <PrimaryButton
+            onClick={visualizeDijkstra}
+            text={isCodeRunning ? "Running..." : "Run Code"}
+          />
           <IconButton
             onClick={resetGrid}
             icon={"material-symbols-light:restart-alt"}
