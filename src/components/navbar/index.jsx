@@ -37,7 +37,11 @@ function Navbar({ className }) {
             <HoveredLink to="/median">
               Median Of Two Sorted Arrays
             </HoveredLink>
+            <HoveredLink to="/add-two-numbers">
+              Add Two Numbers
+            </HoveredLink>
           </div>
+
         </MenuItem>
       </Menu>
     </div>
