@@ -7,6 +7,7 @@ import QuickSort from "./pages/QuickSort";
 import MedianOfTwoArrays from "./pages/MedianOfTwoArrays";
 import Home from "./pages/Home";
 import AddTwoNumbers from "./pages/AddTwoNumbers";
+import LongestSubstring from "./pages/LongestSubstring";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/quick-sort" element={<QuickSort />} />
         <Route path="/median" element={<MedianOfTwoArrays />} />
         <Route path="/add-two-numbers" element={<AddTwoNumbers />} />
+        <Route path="/longest-substring" element={<LongestSubstring />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

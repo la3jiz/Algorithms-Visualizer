@@ -1,5 +1,5 @@
 //pure algorithm O(n log n) note not allways in some cases n^2 or log n
-function quickSort(array, low, high) {
+export const QUICK_SORT_ALGORITHM_CODE = `function quickSort(array, low, high) {
   if (low < high) {
     let index_pivot = partition(array, low, high);
     quickSort(array, low, index_pivot - 1);
@@ -23,6 +23,7 @@ function partition(array, low, high) {
   array[high] = temp;
   return i + 1;
 }
+`;
 
 //visual algo
 export const quickSortVisual = async (arr, low, high, updateArray) => {

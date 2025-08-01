@@ -2,34 +2,10 @@ import React, { useState } from "react";
 import ArrayItem from "./ArrayItem";
 import PrimaryButton from "../../components/buttons/PrimayButton";
 import CodeSnippet from "../../components/codeSnippet";
-import { quickSortVisual } from "../../algorithms/sorts/quickSort";
+import { QUICK_SORT_ALGORITHM_CODE, quickSortVisual } from "../../algorithms/sorts/quickSort";
 import IconButton from "../../components/buttons/IconButton";
 
-let ALGORITHM_CODE = `function quickSort(array, low, high) {
-  if (low < high) {
-    let index_pivot = partition(array, low, high);
-    quickSort(array, low, index_pivot - 1);
-    quickSort(array, index_pivot + 1, high);
-  }
-}
 
-function partition(array, low, high) {
-  let pivot = array[high];
-  let i = low - 1;
-  for (let j = low; j < high; j++) {
-    if (array[j] < pivot) {
-      i++;
-      let temp = array[j];
-      array[j] = array[i];
-      array[i] = temp;
-    }
-  }
-  let temp = array[i + 1];
-  array[i + 1] = array[high];
-  array[high] = temp;
-  return i + 1;
-}
-`;
 
 const QuickSort = () => {
   const [array, setArray] = useState(
@@ -81,7 +57,7 @@ const QuickSort = () => {
       </div>
       <div className="px-12  relative mb-12">
         <CodeSnippet
-          code={ALGORITHM_CODE}
+          code={QUICK_SORT_ALGORITHM_CODE}
           codingLanguage={"javascript"}
           title={"Quick Sort Algorithm In JS"}
         />

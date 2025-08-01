@@ -40,6 +40,9 @@ function Navbar({ className }) {
             <HoveredLink to="/add-two-numbers">
               Add Two Numbers
             </HoveredLink>
+            <HoveredLink to="/longest-substring">
+              Longest Substring Without Repeating Characters
+            </HoveredLink>
           </div>
 
         </MenuItem>

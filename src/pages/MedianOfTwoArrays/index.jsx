@@ -3,18 +3,8 @@ import PrimaryButton from "../../components/buttons/PrimayButton";
 import IconButton from "../../components/buttons/IconButton";
 import CodeSnippet from "../../components/codeSnippet";
 import MedianItem from "./MedianItem";
-import { medianOfTwoArrays } from "../../algorithms/leet/medianOfTwoArrays";
+import { MEDIAN_OF_TWO_ARRAYS_ALGORITHM_CODE, medianOfTwoArrays } from "../../algorithms/leet/medianOfTwoArrays";
 
-let ALGORITHM_CODE = `const medianOfTwoArrays = (arr1, arr2) => {
-  const resArray = [...arr1, ...arr2].sort((a, b) => a - b);
-  const len = resArray.length;
-
-  if (len % 2 !== 0) {
-    return resArray[Math.floor(len / 2)];
-  } else {
-    return (resArray[len / 2 - 1] + resArray[len / 2]) / 2;
-  }
-};`;
 
 const MedianOfTwoArrays = () => {
   const array1 = [2, 4, 1, 8];
@@ -124,7 +114,7 @@ const MedianOfTwoArrays = () => {
       </div>
       <div className="px-12  relative mb-12">
         <CodeSnippet
-          code={ALGORITHM_CODE}
+          code={MEDIAN_OF_TWO_ARRAYS_ALGORITHM_CODE}
           codingLanguage={"javascript"}
           title={"Median Of Two Sorted Arrays Algorithm In JS"}
         />

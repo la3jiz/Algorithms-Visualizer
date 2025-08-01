@@ -1,5 +1,5 @@
 //pure algorthim O(n^2)
-function dijkstraWeightedGraph(graph, start) {
+export const DIJKASTRA_ALGORITHM_CODE = `function dijkstraWeightedGraph(graph, start) {
   const n = graph.length;
   const distances = new Array(n).fill(Infinity);
   const visited = new Array(n).fill(false);
@@ -26,6 +26,7 @@ function dijkstraWeightedGraph(graph, start) {
   }
   return distances;
 }
+`;
 
 
 

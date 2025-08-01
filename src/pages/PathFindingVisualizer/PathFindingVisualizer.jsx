@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Node from "./Node/Node";
 import {
+  DIJKASTRA_ALGORITHM_CODE,
   dijkstra,
   getNodesInShortestPathOrder,
 } from "../../algorithms/algo/dijkstra";
@@ -15,34 +16,7 @@ const START_NODE_COL = 15;
 const FINISH_NODE_ROW = 10;
 const FINISH_NODE_COL = 35;
 
-const ALGORITHM_CODE = `function dijkstraWeightedGraph(graph, start) {
-  const n = graph.length;
-  const distances = new Array(n).fill(Infinity);
-  const visited = new Array(n).fill(false);
-  distances[start] = 0;
-  for (let i = 0; i < n - 1; i++) {
-    let minDistance = Infinity;
-    let nodeIndex = -1;
-    for (let j = 0; j < n; j++) {
-      if (!visited[j] && distances[j] < minDistance) {
-        minDistance = distances[j];
-        nodeIndex = j;
-      }
-    }
-    if (nodeIndex === -1) break;
-    visited[nodeIndex] = true;
-    for (let v = 0; v < n; v++) {
-      if (graph[nodeIndex][v] !== Infinity && !visited[v]) {
-        let newDis = distances[nodeIndex] + graph[nodeIndex][v];
-        if (newDis < distances[v]) {
-          distances[v] = newDis;
-        }
-      }
-    }
-  }
-  return distances;
-}
-`;
+
 
 const PathFindingVisualizer = () => {
   const [grid, setGrid] = useState([]);
@@ -184,7 +158,7 @@ const PathFindingVisualizer = () => {
       </div>
       <div className="px-12  relative bottom-20">
         <CodeSnippet
-          code={ALGORITHM_CODE}
+          code={DIJKASTRA_ALGORITHM_CODE}
           codingLanguage={"javascript"}
           title={"Dijkstra's Algorithm In JS: O(n^2)"}
         />
