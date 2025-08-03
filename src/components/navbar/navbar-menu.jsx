@@ -101,7 +101,7 @@ export const HoveredLink = ({
   return (
     <Link
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-gray-300 ">
+      className="text-neutral-700 dark:text-neutral-200 hover:text-gray-300 flex items-center justify-between w-full gap-4">
       {children}
     </Link>
   );

@@ -22,11 +22,11 @@ const Node = ({
   return (
     <div
       id={`node-${row}-${col}`}
-      className={`node ${extraClassName}`}
+      className={`node ${extraClassName} relative`}
       onMouseDown={() => onMouseDown(row, col)}
       onMouseEnter={() => onMouseEnter(row, col)}
       onMouseUp={() => onMouseUp()}
-    ></div>
+    ><span className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold'>{isFinish?"B":isStart?"A":isWall?"W":""}</span></div>
   );
 };
 

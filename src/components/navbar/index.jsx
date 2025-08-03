@@ -17,15 +17,16 @@ function Navbar({ className }) {
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Algorithms">
+        <MenuItem setActive={setActive} active={active} item="Complex Algorithms">
           <div className="flex flex-col space-y-4 text-sm items-start">
-            <HoveredLink to="/dijkastra">Dijkastra</HoveredLink>
+            <HoveredLink to="/dijkstra">Dijkstra</HoveredLink>
           </div>
         </MenuItem>
 
         <MenuItem setActive={setActive} active={active} item="Sort Alogrithms">
           <div className="flex flex-col space-y-4 text-sm items-start">
             <HoveredLink to="/quick-sort">Quick Sort</HoveredLink>
+            <HoveredLink to="/bubble-sort">Bubble Sort</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem
@@ -35,13 +36,16 @@ function Navbar({ className }) {
         >
           <div className="flex flex-col space-y-4 text-sm items-start">
             <HoveredLink to="/median">
-              Median Of Two Sorted Arrays
+              Median Of Two Sorted Arrays <span className="text-xs text-red-500">Hard</span>
             </HoveredLink>
             <HoveredLink to="/add-two-numbers">
-              Add Two Numbers
+              Add Two Numbers <span className="text-xs text-yellow-500">Medium</span>
             </HoveredLink>
             <HoveredLink to="/longest-substring">
-              Longest Substring Without Repeating Characters
+              Longest Substring Without Repeating Characters <span className="text-xs text-yellow-500">Medium</span>
+            </HoveredLink>
+            <HoveredLink to="/longest-palindrome">
+              Longest Palindrome Substring <span className="text-xs text-yellow-500">Medium</span>
             </HoveredLink>
           </div>
 

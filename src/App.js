@@ -8,6 +8,8 @@ import MedianOfTwoArrays from "./pages/MedianOfTwoArrays";
 import Home from "./pages/Home";
 import AddTwoNumbers from "./pages/AddTwoNumbers";
 import LongestSubstring from "./pages/LongestSubstring";
+import BubbleSort from "./pages/BubbleSort";
+import LongestPalindrome from "./pages/LongestPalindrome";
 
 function App() {
   return (
@@ -33,11 +35,13 @@ function App() {
             </div>
           }
         />
-        <Route path="/dijkastra" element={<PathFindingVisualizer />} />
+        <Route path="/dijkstra" element={<PathFindingVisualizer />} />
         <Route path="/quick-sort" element={<QuickSort />} />
+        <Route path="/bubble-sort" element={<BubbleSort />} />
         <Route path="/median" element={<MedianOfTwoArrays />} />
         <Route path="/add-two-numbers" element={<AddTwoNumbers />} />
         <Route path="/longest-substring" element={<LongestSubstring />} />
+        <Route path="/longest-palindrome" element={<LongestPalindrome />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
