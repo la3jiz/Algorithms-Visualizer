@@ -10,6 +10,8 @@ import AddTwoNumbers from "./pages/AddTwoNumbers";
 import LongestSubstring from "./pages/LongestSubstring";
 import BubbleSort from "./pages/BubbleSort";
 import LongestPalindrome from "./pages/LongestPalindrome";
+import ZigzagConversion from "./pages/ZigzagConversion";
+import ReverseInteger from "./pages/ReverseInteger";
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
         <Route path="/add-two-numbers" element={<AddTwoNumbers />} />
         <Route path="/longest-substring" element={<LongestSubstring />} />
         <Route path="/longest-palindrome" element={<LongestPalindrome />} />
+        <Route path="/zigzag-conversion" element={<ZigzagConversion />} />
+        <Route path="/reverse-integer" element={<ReverseInteger />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

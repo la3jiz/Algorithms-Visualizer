@@ -47,6 +47,12 @@ function Navbar({ className }) {
             <HoveredLink to="/longest-palindrome">
               Longest Palindrome Substring <span className="text-xs text-yellow-500">Medium</span>
             </HoveredLink>
+            <HoveredLink to="/zigzag-conversion">
+              Zigzag Conversion <span className="text-xs text-yellow-500">Medium</span>
+            </HoveredLink>
+            <HoveredLink to="/reverse-integer">
+              Reverse Integer with Overflow Check <span className="text-xs text-yellow-500">Medium</span>
+            </HoveredLink>
           </div>
 
         </MenuItem>
