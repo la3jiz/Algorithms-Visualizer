@@ -53,6 +53,9 @@ function Navbar({ className }) {
             <HoveredLink to="/reverse-integer">
               Reverse Integer with Overflow Check <span className="text-xs text-yellow-500">Medium</span>
             </HoveredLink>
+            <HoveredLink to="/my-atoi">
+              String to Integer (Atoi) <span className="text-xs text-yellow-500">Medium</span>
+            </HoveredLink>
           </div>
 
         </MenuItem>
